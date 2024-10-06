@@ -1,0 +1,41 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Midias {
+  id           String    @id @default(auto()) @map("_id") @db.ObjectId
+  NomeArquivo  String    @unique
+  URL_playlist String    @unique
+  Pasta        String // Nome da pasta onde o arquivo está salvo
+  playlist     Playlist? @relation(fields: [playlistId], references: [id]) // Relacionamento com Playlist
+  playlistId   String?   @db.ObjectId // Campo da chave estrangeira
+
+  @@map("ProjetoPi4.Midias")
+}
+
+model Playlist {
+  id       String   @id @default(auto()) @map("_id") @db.ObjectId
+  Playlist String   @unique
+  midias   Midias[] // Relacionamento com a tabela de mídias
+
+  @@map("ProjetoPi4.Playlist")
+}
+
+model Uploads {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  NomeArquivo String
+  URL         String   @unique
+  DataUpload  DateTime @default(now()) // Armazena a data do upload
+  Pasta       String? // Opcionalmente, pode armazenar a pasta em que foi feito o upload
+}
