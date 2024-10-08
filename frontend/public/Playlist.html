@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Playlists</title>
+    <link rel="stylesheet" href="styles-Playlist.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Gerenciador de Arquivos e Playlists</h1>
+        <input type="file" id="fileInput" multiple>
+        <div id="fileList" class="file-list"></div>
+
+        <h2>Criar Playlist</h2>
+        <input type="text" id="playlistName" placeholder="Nome da Playlist">
+        <button id="createPlaylistButton">Criar Playlist</button>
+
+        <div id="playlistsContainer" class="playlists-container"></div>
+    </div>
+
+    <div>
+        <button id="create-playlist-btn" onclick="window.location.href='index.html'">Visualizar midias</button>
+    </div>
+
+    <script src="Playlist.js"></script>
+</body>
+
+</html>

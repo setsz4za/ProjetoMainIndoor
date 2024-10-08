@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Arquivos</title>
+    <link rel="stylesheet" href="styles-index.css">
+</head>
+
+<body>
+    <h1>Gerenciador de Arquivos do Firebase</h1>
+
+    <div>
+        <label for="folder-select">Selecione uma pasta:</label>
+        <select id="folder-select">
+            <option value="" disabled="" selected="">Selecione uma pasta</option>
+        </select>
+    </div>
+
+    <div>
+        <input type="file" id="file-input">
+        <button id="upload-btn">Fazer Upload</button>
+    </div>
+
+    <div id="file-container"></div>
+
+    <div>
+        <label for="playlist-name">Nome da Playlist:</label>
+        <input type="text" id="playlist-name" placeholder="Nome da Playlist">
+    </div>
+
+    <div>
+        <button id="create-playlist-btn" onclick="window.location.href='Playlist.html'">Playlist</button>
+    </div>
+
+    <script type="module" src="index.js"></script>
+</body>
+
+</html>
